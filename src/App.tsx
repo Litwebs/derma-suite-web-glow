@@ -62,7 +62,7 @@ async function checkStatus() {
   try {
     const res = await axios.post(
       "https://admin.litwebs.co.uk/api/websites/status",
-      { url: "https://dermasuiteltd.com" }
+      { url: "https://dermasuiteltd.com" },
     );
     return res.data?.data?.status === "live";
   } catch {

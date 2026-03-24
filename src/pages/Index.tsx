@@ -104,7 +104,12 @@ const Index = () => {
           
           <div className="grid-services mb-8">
             {services.map((service) => (
-              <div key={service.id} className="card-elevated p-6 group hover:shadow-strong transition-all duration-300">
+              <Link
+                key={service.id}
+                to={`/treatments#${service.id}`}
+                aria-label={`View ${service.title} on treatments page`}
+                className="card-elevated p-6 group hover:shadow-strong transition-all duration-300 block"
+              >
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <service.icon className="w-6 h-6 text-primary" />
@@ -119,16 +124,13 @@ const Index = () => {
                       )}
                     </div>
                     <p className="text-sm text-muted-foreground mb-4">{service.description}</p>
-                    <Link 
-                      to="/treatments" 
-                      className="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium transition-colors"
-                    >
+                    <span className="inline-flex items-center text-primary group-hover:text-primary/80 text-sm font-medium transition-colors">
                       Learn more
                       <ArrowRight className="w-4 h-4 ml-1" />
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           
