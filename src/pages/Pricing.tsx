@@ -10,6 +10,7 @@ import {
 const Pricing = () => {
   const pricingData = [
     {
+      id: "facials",
       category: "Facials",
       treatments: [
         { name: "The Perfect Facial (1 hr)", price: "£35", popular: true },
@@ -21,6 +22,7 @@ const Pricing = () => {
       ],
     },
     {
+      id: "anti-wrinkle",
       category: "Anti-Wrinkle Injections",
       treatments: [
         { name: "1 Area", price: "£130", popular: true },
@@ -30,6 +32,7 @@ const Pricing = () => {
       ],
     },
     {
+      id: "dermal-filler",
       category: "Dermal Filler",
       treatments: [
         { name: "0.5ml", price: "£100" },
@@ -40,6 +43,7 @@ const Pricing = () => {
       ],
     },
     {
+      id: "fat-dissolving",
       category: "Fat Dissolving",
       treatments: [
         { name: "Small Area - Chin, Jawline (30 mins)", price: "£50" },
@@ -47,6 +51,7 @@ const Pricing = () => {
       ],
     },
     {
+      id: "vitamin-injections",
       category: "Vitamin Injections",
       treatments: [
         { name: "Vitamin D", price: "£35" },
@@ -56,6 +61,7 @@ const Pricing = () => {
       ],
     },
     {
+      id: "led-therapy",
       category: "LED Therapy",
       treatments: [
         {
@@ -66,6 +72,7 @@ const Pricing = () => {
       ],
     },
     {
+      id: "mesotherapy",
       category: "Mesotherapy",
       treatments: [
         { name: "Vitaran 1 (Eyes)", price: "£180" },
@@ -81,6 +88,7 @@ const Pricing = () => {
       ],
     },
     {
+      id: "prp-treatments",
       category: "PRP Treatments",
       treatments: [
         { name: "PRP Undereyes", price: "£150" },
@@ -103,6 +111,7 @@ const Pricing = () => {
       ],
     },
     {
+      id: "laser-hair-removal",
       category: "Laser Hair Removal",
       treatments: [
         { name: "Extra Small Area - Per session", price: "£20" },
@@ -219,8 +228,12 @@ const Pricing = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {pricingData.map((category, index) => (
-              <div key={index} className="card-subtle p-8">
+            {pricingData.map((category) => (
+              <div
+                key={category.id}
+                id={category.id}
+                className="card-subtle p-8 scroll-mt-24"
+              >
                 <h3 className="heading-md mb-6 text-primary">
                   {category.category}
                 </h3>

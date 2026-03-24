@@ -188,7 +188,10 @@ const Treatments = () => {
 
                     {/* CTA Buttons */}
                     <div className="space-y-3">
-                      <Link to="/pricing" className="btn-outline w-full text-center">
+                      <Link
+                        to={`/pricing#${treatment.id}`}
+                        className="btn-outline w-full text-center"
+                      >
                         View Pricing
                       </Link>
                       <Link to="/contact" className="btn-primary w-full text-center">

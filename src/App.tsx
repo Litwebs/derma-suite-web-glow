@@ -18,8 +18,41 @@ import Error from "./pages/Error"; // your paused component
 import axios from "axios";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    const id = decodeURIComponent(hash.replace(/^#/, ""));
+    if (!id) {
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    let attempts = 0;
+    const maxAttempts = 10;
+
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      attempts += 1;
+      if (attempts <= maxAttempts) {
+        window.setTimeout(tryScroll, 100);
+        return;
+      }
+
+      window.scrollTo(0, 0);
+    };
+
+    tryScroll();
+  }, [pathname, hash]);
   return null;
 }
 
