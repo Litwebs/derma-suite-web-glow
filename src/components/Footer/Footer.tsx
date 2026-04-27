@@ -1,27 +1,27 @@
-import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Treatments', href: '/treatments' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'About', href: '/about' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '/contact' },
+    { name: "Home", href: "/" },
+    { name: "Treatments", href: "/treatments" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "About", href: "/about" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const treatments = [
-    'The Perfect Facial',
-    'Anti-wrinkle Injections',
-    'Dermal Filler',
-    'Fat Dissolving',
-    'Vitamin Injections',
-    'PRP Treatments',
-    'Laser Hair Removal',
+    "The Perfect Facial",
+    "Anti-wrinkle Injections",
+    "Dermal Filler",
+    "Fat Dissolving",
+    "Vitamin Injections",
+    "PRP Treatments",
+    "Laser Hair Removal",
   ];
 
   return (
@@ -32,17 +32,21 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
-                DS
-              </div>
-            <span className="font-heading font-semibold text-xl">
+              <img
+                src="/logo.png"
+                alt="Derma Suite logo"
+                className="h-10 w-auto"
+              />
+              <span className="font-heading font-semibold text-xl">
                 Derma Suite
               </span>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              Step into a world where outstanding service meets cutting-edge technology. 
-              Our expert clinicians use the most advanced machines to deliver results that are nothing short of exceptional. 
-              Every treatment is guided by precision, comfort, and genuine care — because your confidence deserves nothing less than the very best.
+              Step into a world where outstanding service meets cutting-edge
+              technology. Our expert clinicians use the most advanced machines
+              to deliver results that are nothing short of exceptional. Every
+              treatment is guided by precision, comfort, and genuine care —
+              because your confidence deserves nothing less than the very best.
             </p>
             <div className="flex space-x-4">
               <a
@@ -85,7 +89,9 @@ const Footer = () => {
 
           {/* Popular Treatments */}
           <div className="space-y-4">
-            <h3 className="font-heading font-semibold text-lg">Popular Treatments</h3>
+            <h3 className="font-heading font-semibold text-lg">
+              Popular Treatments
+            </h3>
             <ul className="space-y-2">
               {treatments.map((treatment) => (
                 <li key={treatment}>
@@ -148,17 +154,14 @@ const Footer = () => {
             <p className="text-gray-300 text-sm text-center md:text-left">
               © {currentYear} Derma Suite. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm">
-              <Link to="/privacy" className="text-gray-300 hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-gray-300 hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-              <Link to="/cookies" className="text-gray-300 hover:text-white transition-colors">
-                Cookie Policy
-              </Link>
-            </div>
+            <a
+              href="https://litwebs.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 text-sm transition-colors hover:text-white"
+            >
+              Powered by Litwebs
+            </a>
           </div>
         </div>
       </div>

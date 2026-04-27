@@ -7,17 +7,46 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+type PricingTreatment = {
+  name: string;
+  price: string;
+  popular?: boolean;
+  description?: string;
+};
+
+type PricingCategory = {
+  id: string;
+  category: string;
+  treatments: PricingTreatment[];
+};
+
 const Pricing = () => {
-  const pricingData = [
+  const pricingData: PricingCategory[] = [
     {
       id: "facials",
       category: "Facials",
       treatments: [
-        { name: "The Perfect Facial (1 hr)", price: "£35", popular: true },
-        { name: "Hydro Facial & Serum (1 hr 30 mins)", price: "£85" },
-        { name: "Million Dollar Facial (1 hr 30 mins)", price: "£85" },
-        { name: "Add-on: Dermaplaning Serum", price: "£10" },
-        { name: "Add-on: Serum", price: "£12" },
+        {
+          name: "The Perfect Facial (1 hr)",
+          price: "£35",
+          popular: true,
+          description:
+            "A results-focused 60-minute facial including a deep cleanse, gentle exfoliation, a hydrating mask, and ozone steam to purify and refine pores. Finished with a hyaluronic serum to lock in moisture, leaving your skin smooth, plump, and glowing.",
+        },
+        {
+          name: "Hydrofacial (1 hr 30 mins)",
+          price: "£65",
+          description:
+            "A deep cleanse followed by gentle exfoliation and hydro dermabrasion to remove dead skin and impurities. Includes extractions, a hydrating mask, and targeted serum infusion to nourish and replenish the skin, finished with moisturiser and SPF for a smooth, refreshed complexion.",
+        },
+        {
+          name: "Million Dollar Facial (1 hr 30 mins)",
+          price: "£85",
+          description:
+            "A deep cleanse and exfoliation followed by dermaplaning to remove dead skin and peach fuzz. Microneedling helps stimulate collagen, paired with a hydrating mask and lymphatic drainage massage to boost circulation. Finished with targeted serums, moisturiser, and SPF for a firmer, radiant finish.",
+        },
+        { name: "Add-on: Dermaplaning", price: "£10" },
+        { name: "Add-on: Serum (Hyaluronic acid or Vitamin C)", price: "£12" },
         { name: "Add-on: Microneedling", price: "£50" },
       ],
     },
@@ -54,10 +83,36 @@ const Pricing = () => {
       id: "vitamin-injections",
       category: "Vitamin Injections",
       treatments: [
-        { name: "Vitamin D", price: "£35" },
-        { name: "Vitamin C", price: "£35" },
-        { name: "Vitamin B12", price: "£20", popular: true },
-        { name: "Glutathione (600mg)", price: "£50" },
+        {
+          name: "Vitamin D",
+          price: "£45",
+          description: "Supports immunity, energy levels, and bone health.",
+        },
+        {
+          name: "Vitamin C",
+          price: "£40",
+          description:
+            "Boosts immunity, fights free radicals, and supports brighter skin.",
+        },
+        {
+          name: "Vitamin B12",
+          price: "£20",
+          popular: true,
+          description:
+            "Increases energy and helps reduce fatigue and tiredness.",
+        },
+        {
+          name: "Glutathione (600mg)",
+          price: "£50",
+          description:
+            "Helps detoxify the body, supports immunity, and brightens skin.",
+        },
+        {
+          name: "Vitamin B Complex 3mil",
+          price: "£55",
+          description:
+            "Supports energy production, metabolism, and nervous system health while helping reduce fatigue and improve overall wellbeing.",
+        },
       ],
     },
     {
@@ -314,19 +369,26 @@ const Pricing = () => {
                     {category.treatments.map((treatment, treatmentIndex) => (
                       <div
                         key={treatmentIndex}
-                        className="flex items-center justify-between py-2 border-b border-border/50 last:border-b-0"
+                        className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-2 py-3 border-b border-border/50 last:border-b-0"
                       >
-                        <div className="flex items-center space-x-2">
-                          <span className="text-sm font-medium">
-                            {treatment.name}
-                          </span>
-                          {treatment.popular && (
-                            <span className="inline-flex items-center px-2 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">
-                              Popular
+                        <div className="min-w-0">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-sm font-medium">
+                              {treatment.name}
                             </span>
+                            {treatment.popular && (
+                              <span className="inline-flex items-center px-2 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">
+                                Popular
+                              </span>
+                            )}
+                          </div>
+                          {treatment.description && (
+                            <p className="mt-1 max-w-2xl text-sm leading-6 text-muted-foreground">
+                              {treatment.description}
+                            </p>
                           )}
                         </div>
-                        <span className="font-semibold text-primary">
+                        <span className="font-semibold text-primary shrink-0 self-start">
                           {treatment.price}
                         </span>
                       </div>

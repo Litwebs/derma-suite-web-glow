@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Phone } from "lucide-react";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Treatments', href: '/treatments' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'About', href: '/about' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '/contact' },
+    { name: "Home", href: "/" },
+    { name: "Treatments", href: "/treatments" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "About", href: "/about" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -36,9 +36,11 @@ const Navbar = () => {
             className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
             onClick={closeMobileMenu}
           >
-            <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
-              DS
-            </div>
+            <img
+              src="/logo.png"
+              alt="Derma Suite logo"
+              className="h-10 w-auto lg:h-12"
+            />
             <span className="font-heading font-semibold text-xl lg:text-2xl">
               Derma Suite
             </span>
@@ -52,8 +54,8 @@ const Navbar = () => {
                 to={item.href}
                 className={`font-medium transition-colors hover:text-primary ${
                   isActive(item.href)
-                    ? 'text-primary border-b-2 border-primary pb-1'
-                    : 'text-foreground'
+                    ? "text-primary border-b-2 border-primary pb-1"
+                    : "text-foreground"
                 }`}
               >
                 {item.name}
@@ -94,8 +96,8 @@ const Navbar = () => {
                   to={item.href}
                   className={`block px-3 py-2 rounded-lg font-medium transition-colors ${
                     isActive(item.href)
-                      ? 'text-primary bg-secondary'
-                      : 'text-foreground hover:text-primary hover:bg-secondary'
+                      ? "text-primary bg-secondary"
+                      : "text-foreground hover:text-primary hover:bg-secondary"
                   }`}
                   onClick={closeMobileMenu}
                 >
