@@ -14,7 +14,7 @@ import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import Error from "./pages/Error"; // your paused component
+import NoService from "./pages/NoService";
 import axios from "axios";
 
 function ScrollToTop() {
@@ -70,11 +70,15 @@ async function checkStatus() {
   }
 }
 
+const isProd = import.meta.env.PROD;
+
 function AppInner() {
-  const [isLive, setIsLive] = useState(true);
-  const [checking, setChecking] = useState(true);
+  const [isLive, setIsLive] = useState(!isProd);
+  const [checking, setChecking] = useState(isProd);
 
   useEffect(() => {
+    if (!isProd) return;
+
     let mounted = true;
 
     (async () => {
@@ -96,7 +100,7 @@ function AppInner() {
 
       {/* optional: while checking, you can render nothing or a small loader */}
       {checking ? null : !isLive ? (
-        <Error />
+        <NoService />
       ) : (
         <div className="min-h-screen flex flex-col">
           <Navbar />
