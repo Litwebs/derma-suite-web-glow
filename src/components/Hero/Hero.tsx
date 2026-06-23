@@ -1,22 +1,22 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Users, Clock } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { ArrowRight, Award, Users, Clock } from "lucide-react";
 
 const Hero = () => {
   const stats = [
     {
       icon: Users,
-      number: '5000+',
-      label: 'Happy Clients',
+      number: "5000+",
+      label: "Happy Clients",
     },
     {
       icon: Award,
-      number: '15+',
-      label: 'Years Experience',
+      number: "15+",
+      label: "Years Experience",
     },
     {
       icon: Clock,
-      number: '98%',
-      label: 'On-Time Appointments',
+      number: "98%",
+      label: "On-Time Appointments",
     },
   ];
 
@@ -34,14 +34,15 @@ const Hero = () => {
           {/* Content */}
           <div className="text-center">
             <h1 className="heading-hero text-foreground mb-6">
-              Welcome to{' '}
-              <span className="text-6xl lg:text-7xl">
-                Derma Suite
-              </span>
+              Welcome to{" "}
+              <span className="text-6xl lg:text-7xl">Derma Suite</span>
             </h1>
-            
+
             <p className="body-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Discover the art of confidence with our advanced medical aesthetic treatments. Here at Derma Suite our highly skilled clinicians combine expertise with the latest technology to deliver safe, comfortable, and transformative results. From the moment you step into our care, you'll experience a personalised approach designed to enhance your natural beauty and leave you looking and feeling your absolute best.
+              Advanced aesthetic treatments designed to enhance facial harmony,
+              improve skin quality, and deliver subtle, refined results. Every
+              treatment begins with a consultation to ensure a personalised plan
+              tailored to your features and goals.
             </p>
 
             {/* CTA Buttons */}
@@ -60,8 +61,12 @@ const Hero = () => {
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <stat.icon className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <div className="heading-md text-foreground">{stat.number}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="heading-md text-foreground">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>

@@ -19,84 +19,91 @@ const Index = () => {
       id: "laser-hair-removal",
       title: "Laser Hair Removal",
       description:
-        "Advanced laser technology for long-lasting hair reduction with minimal discomfort.",
+        "Long-term reduction of unwanted hair growth using advanced laser technology.",
       icon: Zap,
       popular: true,
     },
     {
       id: "anti-wrinkle",
-      title: "Anti-wrinkle Injections",
+      title: "Anti-Wrinkle Injections",
       description:
-        "FDA-approved treatments to smooth fine lines and prevent new wrinkles.",
+        "Softens expression lines while maintaining natural facial movement.",
       icon: Award,
       popular: true,
     },
     {
       id: "dermal-filler",
-      title: "Dermal Filler",
+      title: "Dermal Fillers",
       description:
-        "Hyaluronic acid fillers to restore volume and enhance facial contours naturally.",
+        "Restore volume and refine facial contours with precise injectable treatments.",
       icon: Heart,
       popular: true,
     },
     {
-      id: "chemical-peels",
-      title: "Chemical Peels",
+      id: "microneedling",
+      title: "Microneedling",
       description:
-        "Professional-grade peels to improve skin texture, tone, and clarity.",
+        "Stimulates natural collagen production to improve skin texture and quality.",
       icon: Shield,
     },
     {
-      id: "vitamin-injections",
-      title: "Vitamin Injections",
+      id: "mesotherapy",
+      title: "Skin Boosters & Polynucleotides",
       description:
-        "Targeted vitamin therapy to boost energy, immunity, and overall wellness.",
-      icon: Zap,
+        "Deep hydration and skin regeneration for long-term skin quality improvement.",
+      icon: Eye,
     },
     {
-      id: "dermaplaning",
-      title: "Dermaplaning",
+      id: "prp-treatments",
+      title: "PRP Treatments",
       description:
-        "Gentle exfoliation removing dead skin cells and fine facial hair.",
-      icon: Award,
+        "Platelet-rich plasma therapy for facial rejuvenation and hair restoration.",
+      icon: Users,
     },
   ];
 
   const whyChooseUs = [
     {
       icon: Award,
-      title: "Qualified Clinicians",
+      title: "Medical-Led Approach",
       description:
-        "All practitioners have advanced aesthetic training and expertise.",
-    },
-    {
-      icon: Shield,
-      title: "Medical-Grade Devices",
-      description:
-        "Latest FDA-approved equipment and medical-grade products for optimal safety.",
+        "All treatments are clinically guided with a focus on safety and appropriate outcomes.",
     },
     {
       icon: Heart,
-      title: "Personalised Plans",
+      title: "Natural-Looking Results",
       description:
-        "Every treatment plan is tailored to your individual needs and goals.",
+        "Treatment plans are designed to enhance your features while maintaining facial harmony.",
+    },
+    {
+      icon: Shield,
+      title: "Personalised Treatment Plans",
+      description:
+        "Every plan is tailored to your individual needs, anatomy, and goals.",
     },
   ];
 
   const testimonials = [
     {
       name: "Sarah M.",
-      treatment: "Laser Hair Removal",
+      treatment: "Lip Fillers",
       rating: 5,
-      text: "Amazing results after just 4 sessions! Professional staff made me feel comfortable.",
+      text: "Subtle, natural results that still feel like me. The consultation was thorough and I felt reassured throughout.",
       initials: "SM",
     },
     {
       name: "James R.",
-      treatment: "Anti-wrinkle Treatment",
+      treatment: "Laser Hair Removal",
       rating: 5,
-      text: "Very natural results - exactly what I wanted. Professional and virtually painless.",
+      text: "Professional, honest advice from consultation to aftercare. Very happy with my results.",
       initials: "JR",
+    },
+    {
+      name: "Emma L.",
+      treatment: "Polynucleotides",
+      rating: 5,
+      text: "Clean, clinical environment and excellent results. My skin quality has genuinely improved.",
+      initials: "EL",
     },
     {
       name: "Emma L.",
@@ -116,15 +123,11 @@ const Index = () => {
       <section id="treatments" className="section">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">Our Treatments</h2>
+            <h2 className="heading-lg mb-4">Popular Treatments</h2>
             <p className="body-md text-muted-foreground max-w-2xl mx-auto">
-              Discover the art of confidence with our advanced medical aesthetic
-              treatments. Here at Derma Suite our highly skilled clinicians
-              combine expertise with the latest technology to deliver safe,
-              comfortable, and transformative results. From the moment you step
-              into our care, you'll experience a personalised approach designed
-              to enhance your natural beauty and leave you looking and feeling
-              your absolute best.
+              Advanced aesthetic and skin treatments designed to enhance facial
+              harmony, improve skin quality, and deliver subtle, refined
+              results.
             </p>
           </div>
 
@@ -175,10 +178,10 @@ const Index = () => {
       <section className="section bg-secondary">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">Why Choose Derma Suite</h2>
+            <h2 className="heading-lg mb-4">Why Clients Choose Derma Suite</h2>
             <p className="body-md text-muted-foreground max-w-2xl mx-auto">
-              We combine medical expertise with artistic vision to deliver
-              exceptional results in a safe, professional environment.
+              A medical-led approach to aesthetics, focused on natural results,
+              personalised care, and advanced techniques.
             </p>
           </div>
 
@@ -198,8 +201,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Treatment Philosophy */}
       <section className="section">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="heading-lg mb-6">Treatment Philosophy</h2>
+            <p className="body-lg text-muted-foreground mb-8">
+              We do not believe in overcorrection or one-size-fits-all
+              aesthetics. Our focus is on subtle, refined enhancement that
+              respects your natural features.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 text-left">
+              {[
+                "Facial harmony",
+                "Skin health improvement",
+                "Subtle, refined enhancement",
+                "Long-term treatment planning",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center space-x-3 p-4 card-subtle rounded-lg"
+                >
+                  <Check className="w-5 h-5 text-accent flex-shrink-0" />
+                  <span className="font-medium text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section bg-secondary">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">What Our Clients Say</h2>
@@ -238,13 +271,31 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Location */}
+      <section className="py-6 bg-secondary border-t border-border">
+        <div className="container text-center">
+          <p className="text-sm text-muted-foreground">
+            Serving clients from{" "}
+            <span className="font-medium text-foreground">Leeds</span>
+            {" · "}
+            <span className="font-medium text-foreground">Horsforth</span>
+            {" · "}
+            <span className="font-medium text-foreground">Headingley</span>
+            {" · "}
+            <span className="font-medium text-foreground">Roundhay</span>
+            {" · "}
+            <span className="font-medium text-foreground">West Yorkshire</span>
+          </p>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="contact" className="section bg-gradient-primary text-white">
         <div className="container text-center">
-          <h2 className="heading-lg mb-4">Ready to Transform Your Look?</h2>
+          <h2 className="heading-lg mb-4">Begin Your Treatment Journey</h2>
           <p className="body-lg mb-8 opacity-90 max-w-2xl mx-auto">
-            Book your free consultation today and take the first step towards
-            achieving your aesthetic goals.
+            Start with a consultation and receive a personalised treatment plan
+            tailored to your goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="btn-accent">
